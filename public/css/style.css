@@ -1,0 +1,663 @@
+/**************************************PAYMENT CSS**********************************/
+/*div-body*/
+.body-paiement {
+    background: linear-gradient(to right, #032839 50%, #26A9E1 0%, #26A9E1 100%);
+    font-family: 'Roboto', sans-serif;
+    height: 100vh;
+}
+
+/******navbar******/
+.nav-margin{
+    margin-top: 200px !important;
+}
+.navigation {
+    background-color: #032839 !important;
+
+}
+
+.white {
+    color: #f2f2f2 !important;
+}
+
+.orange {
+    color: #F39517 !important;
+}
+
+.imgpanier {
+    width: 30px;
+    height: 10%;
+}
+
+
+
+
+
+/*********Payment********/
+.paiement-card {
+    border: none;
+    max-width: 450px;
+    border-radius: 15px;
+    margin: 210px 0 110px;
+    padding: 35px;
+    padding-bottom: 20px !important
+}
+
+.heading {
+    color: #C1C1C1;
+    font-size: 14px;
+    font-weight: 500
+}
+
+.visaimg {
+    transform: translate(60px, -15px);
+}
+
+.visaimg:hover {
+    cursor: pointer
+}
+
+.text-warning {
+    font-size: 12px;
+    font-weight: 500;
+    color: #edb537 !important;
+}
+
+#cpn {
+    transform: translateY(-10px)
+}
+
+.input-paiement {
+    border-bottom: 1.5px solid #E8E5D2 !important;
+    font-weight: bold;
+    border-radius: 0;
+    border: 0
+}
+
+.input-paiement:focus {
+    border: 0;
+    outline: 0
+}
+
+
+.btn-paiement {
+    background: #F3A002 !important;
+    border: none !important;
+    border-radius: 30px;
+}
+
+.btn-paiement:focus {
+    box-shadow: none !important;
+}
+
+@media (min-width: 430px) {
+    .visaimg {
+        margin-left: 55px;
+    }
+}
+
+
+
+
+/* ************************************* Page accueil *********************************************************** */
+
+body {
+    background-color: #f2f2f2;
+    overflow-x:hidden;
+}
+
+/*navigation bar Accueil********** */
+.navigation {
+    background-color: #032839 !important;
+
+}
+.white {
+    color: #f2f2f2 !important;
+}
+
+.orange {
+    color: #F39517 !important;
+}
+.darkBlue{
+    color: #032839 !important ;
+}
+
+/********************************** brand accueil (sous la navbar)************** */
+.brandAcceuil {
+    min-height: calc(100vh - 110px);
+    margin-top: 110px;
+
+}
+.brandTitre {
+    font-size: 60px;
+}
+
+.brandSousTitre {
+    font-size: 50px;
+}
+
+.btnAccueil{
+    background-color:#032839;
+    color: #f2f2f2;
+    border:#f2f2f2 1px solid;
+}
+.btnAccueil:hover{
+    background-color:#f2f2f2 ;
+    color:#032839;
+    border:#032839 1px solid;
+}
+
+@media (min-width: 265px) {
+    .brandTitre {
+        font-size: 40px;
+    }
+
+    .brandSousTitre {
+        font-size: 20px;
+    }
+}
+
+.imgAccueil {
+    background: url(../img/Forme1.png) no-repeat;
+    background-size: 100% 100%;
+
+}
+
+.txtRight {
+    color: #f2f2f2;
+    font-size: 40px;
+
+}
+
+/***************** Grands titres  ******************** */
+
+
+
+.titre {
+    color: #f2f2f2;
+    font-size: 50px;
+}
+
+.colorStyle {
+    background-color: #032839;
+    color: #f2f2f2;
+}
+
+
+.headColor {
+    background-color: #f2f2f2;
+    color: #032839;
+    font-size: 50px;
+}
+
+/* **********CARDS************ */
+
+
+
+
+.cardStyle {
+    border-radius: 16px;
+    margin: 0 auto;
+
+    max-width: 300px;
+    max-height: 300px;
+    box-shadow: 0px 3px 5px -1px rgba(0, 0, 0, 0.2),
+        0px 5px 8px 0px rgba(0, 0, 0, 0.14),
+        0px 1px 14px 0px rgba(0, 0, 0, 0.12);
+    overflow: hidden;
+    background: rgb(3, 40, 57);
+    background: linear-gradient(159deg, rgba(3, 40, 57, 1) 5%, rgba(246, 247, 231, 1) 94%);
+
+}
+
+.cardImg {
+    position: absolute;
+    width: 30%;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -80%);
+}
+.cardImgReseau{
+width:20%;
+}
+.cardImgWifi{
+    width:40%;
+}
+
+
+.info {
+    position: relative;
+    width: 100%;
+    height: 300px;
+    background-color: #fff;
+    transform: translateY(100%) translateY(-88px) translateZ(0);
+    transition: transform 0.5s ease-out;
+}
+.info:before {
+    z-index: -1;
+    display: block;
+    position: absolute;
+    content: ' ';
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: rgb(3, 40, 57);
+    background: linear-gradient(159deg, rgba(3, 40, 57, 1) 5%, rgba(246, 247, 231, 1) 94%);
+    filter: blur(10px);
+    background-size: cover;
+    opacity: 0.25;
+    transform: translateY(-100%) translateY(88px) translateZ(0);
+    transition: transform 0.5s ease-out;
+}
+
+.card:hover .info,
+.card:hover .info:before {
+    transform: translateY(0) translateZ(0);
+}
+
+.cardStyle:before {
+    z-index: -1;
+    display: block;
+    position: absolute;
+    content: ' ';
+    width: 100%;
+    height: 100%;
+    overflow: hidden;
+    background: rgb(3, 40, 57);
+    background: linear-gradient(159deg, rgba(3, 40, 57, 1) 5%, rgba(246, 247, 231, 1) 94%);
+    filter: blur(10px);
+    background-size: cover;
+    opacity: 0.25;
+    transform: translateY(-100%) translateY(88px) translateZ(0);
+    transition: transform 0.5s ease-out;
+}
+
+.cardStyle:hover .cardStyle,
+.cardStyle:hover .cardStyle:before {
+    transform: translateY(0) translateZ(0);
+}
+
+.cardTitle {
+    margin: 0;
+    padding: 24px;
+    font-size: 20px;
+    line-height: 2;
+    color: #f2f2f2;
+    background-color: #032839;
+}
+
+.cardDescription {
+    margin: 0;
+    padding: 0 30px 30px;
+    font-size: 15px;
+    line-height: 1.2;
+}
+
+.liStyle {
+    font-size: 13px;
+
+}
+
+
+
+/******************txt area *****************************/
+input:focus{
+    outline: none !important;
+    box-shadow: none !important;
+  
+}
+
+  
+.txtArea:focus ,input:focus , button:focus{
+      outline:none !important;
+      box-shadow: none !important;
+  }
+  
+.info-wrap h3:after {
+    position: absolute;
+    top:60px;
+    left: 50px;
+    width: 120px;
+    height: 3px;
+    background: #032839;
+    content: '';
+}
+.dbox{
+    margin-bottom: 25px;
+}
+.fa-map-marker:before {
+    content: "\f041";
+}
+.info-wrap .dbox .icon {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+}
+.contact{
+    box-shadow: 0px 21px 41px -13px rgb(0 0 0 / 18%);
+}
+.linear{
+    background: rgb(3, 40, 57);
+    background: linear-gradient(159deg, rgba(3, 40, 57, 1) 5%, rgba(246, 247, 231, 1) 94%);
+}
+.inputAccueil::placeholder{
+    color:#f2f2f2 !important ;
+
+}
+
+.txtArea::placeholder{
+    color:#f2f2f2 !important ;
+
+}
+.actif:focus{
+    color:#f2f2f2 !important;
+}
+.inputAccueil, .txtArea{
+    color:#f2f2f2 !important;
+}
+
+/*********************************** Page de cordonées****************************/
+.deliverySvg{
+    margin-top: 8rem;
+}
+/************************************ Connexion/ Inscription*********************/
+.input-log{
+    width: 100%;
+    display: block;
+    border: none;
+    border-bottom: 1px solid #999;
+    padding: 6px 30px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    box-sizing: border-box;
+    
+     }  
+    .form-log{
+        border-radius: 50px !important;
+        box-shadow: 0px 5px 10px 0.17px black;
+        
+    }
+    
+    
+    .fas .fa-user-alt::before{
+        content:"f406";
+    }
+    
+    .label-log {
+        position: absolute;
+       
+    }
+    .fas .fa-envelope::before{
+        content: "f0e0";
+    }
+    /* .card{
+        background-color: #26A9E1;
+    } */
+    .fas .fa-lock{
+        content: "f023";
+    }
+    
+    .form-group-log{
+    font-size: 13px;
+    line-height: 1.8;
+    color: #222;
+    font-weight: 400;
+    font-family: Poppins;
+    
+    margin-bottom: 25px;
+    overflow:hidden;}
+    
+    
+    .card-log{
+        background: rgb(3, 40, 57);
+        background: linear-gradient(159deg, rgba(3, 40, 57, 1) 5%, #f2f2f2 94%);
+    }
+    .input-log::placeholder{
+        color:#f6f7e7 !important ;
+    
+    }
+    .actif:focus{
+        color:#f6f7e7 !important;
+    }
+    .input-log{
+        color:#f6f7e7 !important;
+    }
+    .input-log:focus , button:focus{
+        outline:none !important;
+        box-shadow: none !important;
+    }
+    .btn-log{
+        background-color:#032839;
+        color: #f2f2f2;
+        border: #032839 1px solid;
+    }
+    .btn-log:hover{
+        background-color:#f2f2f2 ;
+        color:#032839;
+        border:#032839 1px solid;
+    }
+    .margin-log{
+        margin-top:120px;
+    }
+    .form-log-size{
+        font-size: 16px;
+    }
+    /*******************Shop***********************/
+
+
+
+
+
+
+
+@import url('https://fonts.googleapis.com/css?family=Open+Sans&display=swap');
+
+body {
+    background-color: #F2F2F2;
+    font-family:'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    font-size: 14px;
+}
+
+
+
+.shop-content{
+    background-color:transparent;
+}
+
+.card-shop {
+    position: relative;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: transparent;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.1);
+    border-radius: 0.37rem
+}
+
+.card-header-shop {
+    padding: 0.75rem 1.25rem;
+    margin-bottom: 0;
+ background-color: rgb(230, 230, 230);
+
+
+}
+
+
+.icon-control-shop {
+    margin-top: 6px;
+    float: right;
+    font-size: 80%
+}
+
+.list-menu-shop {
+    list-style: none;
+    margin: 0;
+    padding-left: 0
+}
+
+.a-shop:hover{
+    color:#032839
+}
+
+.a-shop {
+    text-decoration: none !important;
+    background-color: transparent;
+    color:#032839;
+}
+
+.checkbox-shop {
+    position: relative
+}
+
+.checkbox-shop input {
+    position: absolute;
+    z-index: -1;
+    opacity: 0
+}
+
+.checkbox-shop input:checked~.btn {
+    border-color: #3167eb;
+    background-color: #3167eb;
+    color: #fff
+}
+
+.btn-shop {
+    display: inline-block;
+    font-weight: 600;
+    color: #343a40;
+    text-align: center;
+    vertical-align: middle;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    background-color: #eee;
+    border: 1px solid #eee;
+    padding: 0.45rem 0.85rem;
+    font-size: 10px;
+    line-height: 1.5;
+    border-radius: 0.37rem
+}
+
+.btn-shop:hover {
+    background-color: #fff;
+    border-color: #989898
+}
+
+.btn-m-shop {
+    font-size: 12px;
+    padding: 10px 22px;
+    display: inline-block;
+    margin-right: 20px;
+    letter-spacing: 2px;
+    border: 1px solid #157af6;
+    width: 100%
+}
+
+.h-b-shop:hover {
+    background-color: #557af6;
+    border: 2px solid #157af6;
+    color: #fff
+}
+
+
+
+ .img{
+   background-image: url(../img/Forme2.svg);
+   background-repeat: no-repeat;
+   background-size: 100% 100%;
+ }
+
+ /* .contenaire{
+  background-color: #F6921D;
+  min-height: calc(100vh - 110px);
+background-image: url(/img/forme0.svg);
+
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position: right;
+
+} */
+@media (min-width:1115px) {
+  .contenaire{
+  background-color: #F6921D;
+  min-height: calc(100vh - 80px);
+  background-image: url(../img/forme0.svg);
+
+  background-repeat: no-repeat;
+  background-size: contain;
+  background-position-x:100%;}
+
+}
+@media (min-width:767px) and (max-width:1115px){
+  .contenaire{
+    background: linear-gradient(to right, #F6921D 50%,  #032839 0%, #032839 100%);
+  min-height: calc(100vh - 80px);
+}}
+@media (min-width:1px) and (max-width:767px){
+  
+    .backcolor{
+        background: linear-gradient(to bottom, #F6921D 65%,  #032839 0%, #032839 100%);
+    }
+}
+.cont-shop {
+    margin-top: 80px;
+}
+.text-color-white{
+    color:white;
+
+}
+ .no-margin{
+     margin-right: 0px !important;
+ }
+.hover:hover{
+    background-color:transparent;
+}
+  
+
+ .shadow-sm{
+    box-shadow:grey 10px 7px 40px 0px !important;
+ }
+
+.hover{
+    background-color:#032839;
+    border:2px solid transparent;
+    border-image: linear-gradient(0deg, rgba(157,9,97,1) 5%, rgba(3,185,158,1) 94%);
+    border-image-slice: 1;
+    
+}
+
+/**************** Back to top button*************/
+html {
+    scroll-behavior: smooth;
+  }
+  .to-top {
+    background: white;
+    position: fixed;
+    bottom: 16px;
+    right:32px;
+    width:50px;
+    height:50px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size:32px;
+    color:#1f1f1f;
+    text-decoration: none;
+    opacity:0;
+    pointer-events: none;
+    transition: all .4s;
+  }
+  
+  .to-top.active {
+    bottom:32px;
+    pointer-events: auto;
+    opacity:1;
+  }
+  /*******************footer***********************/
+
+
