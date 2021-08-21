@@ -63,10 +63,10 @@
 
 </div>
 
-<div class=""style="height:85vh">
+<div class=""style="" id="prestations">
 <div class="row " >
 
-    <div class="headColor col-12 py-4 "id=""><span
+    <div class="headColor col-12 py-4 "><span
             class=" d-flex justify-content-center text-center font-weight-bolder ">Nos Prestations
         </span></div>
 </div>
@@ -139,7 +139,8 @@
             class="  titre d-flex justify-content-center text-center font-weight-bolder ">Contactez-Nous</span>
     </div>
 </div>
-<div class="contact mb-5 mt-5 container ">
+
+<div class="contact mb-5 mt-5 container-fluid d-flex justify-content-center">
     <div class="row mt-2 mb-2 ">
         <div class="col-12 col-sm-6  colorStyle">
             <h3 class="mt-2 pt-2 pl-5">Envoyez Nous Un Message</h3>

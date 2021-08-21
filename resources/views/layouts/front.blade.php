@@ -31,7 +31,17 @@
 <body>
     @include('navbar')
     @yield('content')
+    @include('footer')
     <script type="text/javascript" src="{{asset('js\vanilla-tilt.js')}}"></script>
     <script>VanillaTilt.init(document.querySelectorAll(".cardStyle"), {max: 25,speed: 400});</script>
+    <script>const toTop = document.querySelector(".to-top");
+
+        window.addEventListener("scroll", () => {
+          if (window.pageYOffset > 100) {
+            toTop.classList.add("active");
+          } else {
+            toTop.classList.remove("active");
+          }
+        })</script>
 </body>
 </html>

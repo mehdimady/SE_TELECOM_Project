@@ -1,4 +1,5 @@
          
+         <header>
          <div class="row fixed-top justify-content-between">
             <nav class="navbar navbar-expand-md navigation col-12 navbar-dark  px-5">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -61,5 +62,6 @@
                 </div>
             </nav>
         </div>
+    </header>
         
     
