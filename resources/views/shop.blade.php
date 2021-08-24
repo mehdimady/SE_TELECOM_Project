@@ -52,10 +52,10 @@
                </div>
             </div>
             <div class="row mb-5 mt-5 ml-md-5">
-               <div class="col-12 d-flex ml-md-5 align-items-center">
+               <div class="col-12 d-flex ml-md-5 align-items-center" >
 
                    <img src={{asset("/img/lifejacket.png")}} alt="" width="40" height="40">
-                   <h4 class="ml-5 text-color-white">Vêtements</h4>
+                   <h4 id="scrollid" class="ml-5 text-color-white">Vêtements</h4>
                </div>
             </div>
         </div>
@@ -63,7 +63,7 @@
 </div>
 
 
-<div class="container-fluid d-md-block d-none p-0">
+<div class="container-fluid d-md-block d-none p-0" >
     <div class="row d-flex ">
         <div class="col-12 col-md-3 p-0" style="    box-shadow: 1px 20px 20px 0px;">
             <div class="card card-shop" style="    border-radius: 0px;">
@@ -71,25 +71,43 @@
                     <header class="card-header card-header-shop"> <a href="#" data-toggle="collapse" data-target="#collapse_aside1"
                             data-abc="true" aria-expanded="true" > <i
                                 class="icon-control a-shop icon-control-shop fa fa-chevron-down"></i>
-                            <h6 class="title ">Categories </h6>
+                            <h6 class="title ">Filtrer par Categorie </h6>
                         </a> </header>
                     <div class="filter-content shop-content collapse show" id="collapse_aside1">
                         <div class="card-body">
                             <ul class="list-menu list-menu-shop">
-                                <li><a class="a-shop" href="#" data-abc="true">Electronics </a></li>
-                                <li><a class="a-shop" href="#" data-abc="true">Watches </a></li>
-                                <li><a class="a-shop" href="#" data-abc="true">Laptops </a></li>
-                                <li><a class="a-shop" href="#" data-abc="true">Clothes </a></li>
-                                <li><a class="a-shop" href="#" data-abc="true">Accessories </a></li>
+                                <li><a class="a-shop" href="{{url('/shop#scrollid')}}" data-abc="true">Tout les produits </a></li>
+
+                                @foreach ($categories as $category)
+                                <li><a class="a-shop" href="{{url('/select_par_cat/'.$category->category_name)}}" data-abc="true">{{$category->category_name}} </a></li>
+                                @endforeach
+                          
                             </ul>
                         </div>
+                    </div>
+                </article>
+                <article class="filter-group">
+                    <header class="card-header card-header-shop"> <a href="#" data-toggle="collapse" data-target="#collapse_aside3"
+                            data-abc="true" aria-expanded="true" > <i
+                                class="icon-control a-shop icon-control-shop fa fa-chevron-down"></i>
+                            <h6 class="title ">Filtrer par Marque </h6>
+                        </a> </header>
+                    <div class="filter-content shop-content collapse show" id="collapse_aside3">
+                        <div class="card-body">
+                            <ul class="list-menu list-menu-shop">
+                                <li><a class="a-shop" href="{{url('/shop#scrollid')}}" data-abc="true">Toutes les marques </a></li>
+
+                        @foreach ($marques as $marque)
+                        <li><a class="a-shop" href="{{url('/select_par_marque/'.$marque->marque_name)}}" data-abc="true">{{$marque->marque_name}} </a></li>
+                        @endforeach
+                            </div>
                     </div>
                 </article>
                 <article class="filter-group">
                     <header class="card-header card-header-shop  card-shop"> <a href="#" data-toggle="collapse" data-target="#collapse_aside2"
                             data-abc="true" aria-expanded="true" > <i
                                 class="icon-control a-shop icon-control-shop fa fa-chevron-down"></i>
-                            <h6 class="title">Price </h6>
+                            <h6 class="title">Filtrer par Prix </h6>
                         </a> </header>
                         
                     <div class="filter-content shop-content collapse show" id="collapse_aside2" style="">
@@ -104,50 +122,35 @@
                         </div>
                     </div>
                 </article>
-                <article class="filter-group">
-                    <header class="card-header card-header-shop"> <a href="#" class="a-shop"data-toggle="collapse" data-target="#collapse_aside3"
-                            data-abc="true" aria-expanded="true" > <i
-                                class="icon-control a-shop icon-control-shop fa fa-chevron-down"></i>
-                            <h6 class="title">Size </h6>
-                        </a> </header>
-                    <div class="filter-content collapse show" id="collapse_aside3" style="">
-                        <div class="card-body"> <label class="checkbox-btn checkbox-shop"> <input type="checkbox"> <span
-                                    class="btn btn-light btn-shop"> XS </span> </label> <label class="checkbox-btn checkbox-shop"> <input
-                                    type="checkbox"> <span class="btn btn-light btn-shop"> SM </span> </label> <label
-                                class="checkbox-btn checkbox-shop"> <input type="checkbox"> <span class="btn btn-light btn-shop"> LG
-                                </span> </label> <label class="checkbox-btn checkbox-shop "> <input type="checkbox"> <span
-                                    class="btn btn-light btn-shop"> XXL </span> </label> <label class="checkbox-btn checkbox-shop"> <input
-                                    type="checkbox"> <span class="btn btn-light btn-shop"> XXXL </span> </label> </div>
-                    </div>
-                </article>
+        
                
             </div>
         </div>
-        <div class="col-md-9 col-12">
+        <div class="col-md-9 col-12" >
         <div class=" row">
+            @foreach ($products as $product)
             <div class="col-md-4 mt-3">
                 <div class="card mb-4 shadow-sm">
-                    <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
-                        xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
-                        preserveAspectRatio="xMidYMid slice" focusable="false">
-                        <title>Placeholder</title>
-                        <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-                            dy=".3em">Thumbnail</text>
-                    </svg>
+                   <a href=""><img class="bd-placeholder-img p-5 card-img-top" src={{asset("./storage/product_images/{$product->product_image}")}} width="100%" height="225"></a> 
+                       
+                        
+                <div class="py-3 pb-4 px-3 text-center"><h4><a href="">{{$product->product_name}}</a></h4></div>
    
                     <div class="card-body">
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                            additional content. This content is a little bit longer.</p>
+                        
                         <div class="d-flex justify-content-between ">
                             
-                                <button type="button"  class="btn btn-sm btn-outline-secondary hover"><img src={{asset("/img/008-loupe.png")}} width="25px"alt=""></button>
+                             <a  href="{{route('article',['product_name'=>$product->product_name])}}"><button type="button" class="btn btn-sm btn-outline-secondary hover"><img src={{asset("/img/008-loupe.png")}} width="25px"alt=""></button></a>   
+                                <span>{{$product->product_price}}</span>
                                 <button type="button" class="btn btn-sm btn-outline-secondary hover"><img src={{asset("/img/procurement.png")}} width="25px" alt=""></button>
-                                
+                           
                             
                         </div>
                     </div>
                 </div>
             </div>
+
+            @endforeach
 
         </div>
     </div>
@@ -158,7 +161,8 @@
     </div>
 </div>
 
-<div class="container-fluid d-block d-md-none p-0">
+
+<div class="container-fluid d-block d-md-none p-0" >
     <div class="row d-flex ">
         <div class="col-12 col-md-3 p-0">
             <div class="card">
@@ -166,25 +170,44 @@
                     <header class="card-header card-header-shop"> <a href="#" data-toggle="collapse" data-target="#collapse_aside1"
                             data-abc="true" aria-expanded="false" class="collapsed" > <i
                                 class="icon-control fa a-shop icon-control-shop fa-chevron-down"></i>
-                            <h6 class="title">Categories </h6>
+                            <h6 class="title">Filtrer par Categorie </h6>
                         </a> </header>
                     <div class="filter-content collapse" id="collapse_aside1">
                         <div class="card-body">
                             <ul class="list-menu list-menu-shop">
-                                <li><a href="#" class="a-shop" data-abc="true">Electronics </a></li>
-                                <li><a href="#" class="a-shop" data-abc="true">Watches </a></li>
-                                <li><a href="#" class="a-shop" data-abc="true">Laptops </a></li>
-                                <li><a href="#" class="a-shop" data-abc="true">Clothes </a></li>
-                                <li><a href="#" class="a-shop" data-abc="true">Accessories </a></li>
+                                
+                                <li><a class="a-shop" href="{{url('/shop#scrollid')}}" data-abc="true">Tout les produits </a></li>
+                                @foreach ($categories as $category)
+                                <li><a class="a-shop" href="{{url('/select_par_cat/'.$category->category_name)}}" data-abc="true">{{$category->category_name}} </a></li>
+                                @endforeach
+                          
+                    
                             </ul>
                         </div>
+                    </div>
+                </article>
+                <article class="filter-group">
+                    <header class="card-header card-header-shop "> <a href="#" data-toggle="collapse" data-target="#collapse_aside3"
+                            data-abc="true" aria-expanded="false" class="collapsed" > <i
+                                class="icon-control a-shop icon-control-shop fa fa-chevron-down"></i>
+                            <h6 class="title">Filtrer par Marque </h6>
+                        </a> </header>
+              <div class="filter-content shop-content collapse" id="collapse_aside3">
+                        <div class="card-body">
+                            <ul class="list-menu list-menu-shop">
+                                <li><a class="a-shop" href="{{url('/shop#scrollid')}}" data-abc="true">Toutes les marques </a></li>
+
+                        @foreach ($marques as $marque)
+                        <li><a class="a-shop" href="{{url('/select_par_marque/'.$marque->marque_name)}}" data-abc="true">{{$marque->marque_name}} </a></li>
+                        @endforeach
+                            </div>
                     </div>
                 </article>
                 <article class="filter-group">
                     <header class="card-header card-header-shop"> <a href="#" data-toggle="collapse" data-target="#collapse_aside2"
                             data-abc="true" aria-expanded="false" class="collapsed" > <i
                                 class="icon-control a-shop icon-control-shop fa fa-chevron-down"></i>
-                            <h6 class="title">Price </h6>
+                            <h6 class="title">Filtrer par Prix </h6>
                         </a> </header>
                     <div class="filter-content collapse" id="collapse_aside2" style="">
                         <div class="card-body">
@@ -198,43 +221,26 @@
                         </div>
                     </div>
                 </article>
-                <article class="filter-group">
-                    <header class="card-header card-header-shop "> <a href="#" data-toggle="collapse" data-target="#collapse_aside3"
-                            data-abc="true" aria-expanded="false" class="collapsed" > <i
-                                class="icon-control a-shop icon-control-shop fa fa-chevron-down"></i>
-                            <h6 class="title">Size </h6>
-                        </a> </header>
-                    <div class="filter-content collapse" id="collapse_aside3" style="">
-                        <div class="card-body"> <label class="checkbox-btn checkbox-shop"> <input type="checkbox"> <span
-                                    class="btn btn-light btn-shop"> XS </span> </label> <label class="checkbox-btn checkbox-shop"> <input
-                                    type="checkbox"> <span class="btn btn-light btn-shop"> SM </span> </label> <label
-                                class="checkbox-btn checkbox-shop"> <input type="checkbox"> <span class="btn btn-light btn-shop"> LG
-                                </span> </label> <label class="checkbox-btn checkbox-shop"> <input type="checkbox"> <span
-                                    class="btn btn-light btn-shop"> XXL </span> </label> <label class="checkbox-btn checkbox-shop"> <input
-                                    type="checkbox"> <span class="btn btn-light btn-shop"> XXXL </span> </label> </div>
-                    </div>
-                </article>
+          
                
             </div>
         </div>
         <div class="col-md-9 col-12">
         <div class=" row">
+            @foreach ($products as $product)
             <div class="col-md-4 mt-3">
                 <div class="card mb-4 shadow-sm">
-                    <svg class="bd-placeholder-img card-img-top" width="100%" height="225"
-                        xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Placeholder: Thumbnail"
-                        preserveAspectRatio="xMidYMid slice" focusable="false">
-                        <title>Placeholder</title>
-                        <rect width="100%" height="100%" fill="#55595c" /><text x="50%" y="50%" fill="#eceeef"
-                            dy=".3em">Thumbnail</text>
-                    </svg>
+                   <a href=""><img class="bd-placeholder-img card-img-top p-5" src={{asset("./storage/product_images/{$product->product_image}")}} width="100%" height="225"></a> 
+                       
+                        
+                <div class="py-3 pb-4 px-3 text-center"><h4><a href="">{{$product->product_name}}</a></h4></div>
    
                     <div class="card-body">
-                        <p class="card-text">This is a wider card with supporting text below as a natural lead-in to
-                            additional content. This content is a little bit longer.</p>
+                        
                         <div class="d-flex justify-content-between ">
                             
-                                <button type="button" class="btn btn-sm btn-outline-secondary hover"><img src={{asset("/img/008-loupe.png")}} width="25px"alt=""></button>
+                              <a href="{{route('article',['product_name'=>$product->product_name])}}"><button type="button" class="btn btn-sm btn-outline-secondary hover"><a href=""></a><img src={{asset("/img/008-loupe.png")}} width="25px"alt=""></button></a>  
+                                <span>{{$product->product_price}}</span>
                                 <button type="button" class="btn btn-sm btn-outline-secondary hover"><img src={{asset("/img/procurement.png")}} width="25px" alt=""></button>
                            
                             
@@ -243,6 +249,8 @@
                 </div>
             </div>
 
+            @endforeach
+          
         </div>
     </div>
        
@@ -251,6 +259,15 @@
 
     </div>
 </div>
+
+@if ($by_category ?? null)
+<script>
+window.location.hash="#scrollid"
+
+</script> 
+@endif
+
+
 
 
 @endsection

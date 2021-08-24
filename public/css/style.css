@@ -686,9 +686,9 @@ html {
 .footer-useful-link ul li a {
     color: rgba(255,255,255,0.5);
     font-size: 14px;
-    vertical-align: top;
-    display: block;
-    line-height: 26px;
+    /* vertical-align: top; */
+    /* display: block; */
+    /* line-height: 26px; */
 }
 
 .footer-useful-link.footer-hedding ul {
