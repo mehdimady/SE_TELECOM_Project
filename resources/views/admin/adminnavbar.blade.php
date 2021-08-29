@@ -5,7 +5,7 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a href="{{url('/admin')}}" class="nav-link">Tableau de contrôle</a>
+        <a href="{{route('admin')}}" class="nav-link">Tableau de contrôle</a>
       </li>
     </ul>
 

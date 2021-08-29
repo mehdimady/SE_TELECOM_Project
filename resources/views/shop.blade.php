@@ -79,7 +79,7 @@
                                 <li><a class="a-shop" href="{{url('/shop#scrollid')}}" data-abc="true">Tout les produits </a></li>
 
                                 @foreach ($categories as $category)
-                                <li><a class="a-shop" href="{{url('/select_par_cat/'.$category->category_name)}}" data-abc="true">{{$category->category_name}} </a></li>
+                                <li><a class="a-shop" href="{{route('select_par_cat',$category->category_name)}}" data-abc="true">{{$category->category_name}} </a></li>
                                 @endforeach
                           
                             </ul>
@@ -98,7 +98,7 @@
                                 <li><a class="a-shop" href="{{url('/shop#scrollid')}}" data-abc="true">Toutes les marques </a></li>
 
                         @foreach ($marques as $marque)
-                        <li><a class="a-shop" href="{{url('/select_par_marque/'.$marque->marque_name)}}" data-abc="true">{{$marque->marque_name}} </a></li>
+                        <li><a class="a-shop" href="{{route('select_par_marque',$marque->marque_name)}}" data-abc="true">{{$marque->marque_name}} </a></li>
                         @endforeach
                             </div>
                     </div>
@@ -112,14 +112,20 @@
                         
                     <div class="filter-content shop-content collapse show" id="collapse_aside2" style="">
                         <div class="card-body">
+                            <form action="{{route('select_par_prix')}}" method="POST">
+                                @csrf
                             <div class="form-row">
+                                
+                                  
                                 <div class="form-group text-center col-md-6"> <label>Min</label> <input class="form-control"
-                                        placeholder="0 €" type="number"> </div>
+                                        placeholder="0 €" type="number" min="0" name="min_price"> </div>
                                 <div class="form-group text-center col-md-6"> <label>Max</label> <input
-                                        class="form-control" placeholder="10.000 €" type="number" > </div>
-                            </div> <a href="#" class="highlight-button h-b-shop btn-m-shop a-shop btn btn-medium button xs-margin-bottom-five"
-                                data-abc="true">Apply Now</a>
+                                        class="form-control" placeholder="10.000 €" type="number" name="max_price" > </div>
+                            </div> <button type="submit" href="#" class="highlight-button h-b-shop btn-m-shop a-shop btn btn-medium button xs-margin-bottom-five"
+                                data-abc="true">Trier</button>
+                            </form>
                         </div>
+                   
                     </div>
                 </article>
         
@@ -136,13 +142,13 @@
                         
                 <div class="py-3 pb-4 px-3 text-center"><h4><a href="">{{$product->product_name}}</a></h4></div>
    
-                    <div class="card-body">
+                    <div class="card-body card-body-shop">
                         
                         <div class="d-flex justify-content-between ">
                             
                              <a  href="{{route('article',['product_name'=>$product->product_name])}}"><button type="button" class="btn btn-sm btn-outline-secondary hover"><img src={{asset("/img/008-loupe.png")}} width="25px"alt=""></button></a>   
-                                <span>{{$product->product_price}}</span>
-                                <button type="button" class="btn btn-sm btn-outline-secondary hover"><img src={{asset("/img/procurement.png")}} width="25px" alt=""></button>
+                                <span class="p-2 badge rounded-pill bg-dark text-light d-flex align-items-center">{{$product->product_price}} €</span>
+                            <a href="{{route('addtocart2',$product->id)}}">    <button type="button" class="btn btn-sm btn-outline-secondary hover"><img src={{asset("/img/procurement.png")}} width="25px" alt=""></button></a>
                            
                             
                         </div>
@@ -178,7 +184,7 @@
                                 
                                 <li><a class="a-shop" href="{{url('/shop#scrollid')}}" data-abc="true">Tout les produits </a></li>
                                 @foreach ($categories as $category)
-                                <li><a class="a-shop" href="{{url('/select_par_cat/'.$category->category_name)}}" data-abc="true">{{$category->category_name}} </a></li>
+                                <li><a class="a-shop" href="{{route('select_par_cat',$category->category_name)}}" data-abc="true">{{$category->category_name}} </a></li>
                                 @endforeach
                           
                     
@@ -198,7 +204,7 @@
                                 <li><a class="a-shop" href="{{url('/shop#scrollid')}}" data-abc="true">Toutes les marques </a></li>
 
                         @foreach ($marques as $marque)
-                        <li><a class="a-shop" href="{{url('/select_par_marque/'.$marque->marque_name)}}" data-abc="true">{{$marque->marque_name}} </a></li>
+                        <li><a class="a-shop" href="{{route('select_par_marque',$marque->marque_name)}}" data-abc="true">{{$marque->marque_name}} </a></li>
                         @endforeach
                             </div>
                     </div>
@@ -211,13 +217,17 @@
                         </a> </header>
                     <div class="filter-content collapse" id="collapse_aside2" style="">
                         <div class="card-body">
+                            <form action="{{route('select_par_prix')}}" method="POST">
+                                @csrf
                             <div class="form-row">
+                               
                                 <div class="form-group text-center col-md-6"> <label>Min</label> <input class="form-control"
-                                        placeholder="0 €" type="number"> </div>
+                                        placeholder="0 €" type="number" min="0" name="min_price"> </div>
                                 <div class="form-group text-center col-md-6"> <label>Max</label> <input
-                                        class="form-control" placeholder="10.000 €" type="number"> </div>
-                            </div> <a href="#" class="highlight-button h-b-shop btn-m-shop a-shop btn btn-medium button xs-margin-bottom-five"
-                                data-abc="true">Apply Now</a>
+                                        class="form-control" placeholder="10.000 €" type="number" name="max_price" > </div>
+                            </div> <button type="submit" href="#" class="highlight-button h-b-shop btn-m-shop a-shop btn btn-medium button xs-margin-bottom-five"
+                                data-abc="true">Trier</button>
+                            </form>
                         </div>
                     </div>
                 </article>
@@ -229,19 +239,19 @@
         <div class=" row">
             @foreach ($products as $product)
             <div class="col-md-4 mt-3">
-                <div class="card mb-4 shadow-sm">
+                <div class="card mb-4 shadow-sm" >
                    <a href=""><img class="bd-placeholder-img card-img-top p-5" src={{asset("./storage/product_images/{$product->product_image}")}} width="100%" height="225"></a> 
                        
                         
                 <div class="py-3 pb-4 px-3 text-center"><h4><a href="">{{$product->product_name}}</a></h4></div>
    
-                    <div class="card-body">
+                    <div class="card-body card-body-shop" >
                         
                         <div class="d-flex justify-content-between ">
                             
-                              <a href="{{route('article',['product_name'=>$product->product_name])}}"><button type="button" class="btn btn-sm btn-outline-secondary hover"><a href=""></a><img src={{asset("/img/008-loupe.png")}} width="25px"alt=""></button></a>  
-                                <span>{{$product->product_price}}</span>
-                                <button type="button" class="btn btn-sm btn-outline-secondary hover"><img src={{asset("/img/procurement.png")}} width="25px" alt=""></button>
+                            <a href="{{route('article',['product_name'=>$product->product_name])}}">  <button  type="button" class="btn btn-sm btn-outline-secondary hover"><img src={{asset("/img/008-loupe.png")}} width="25px"alt=""></button> </a>
+                                <span class="p-2 badge rounded-pill bg-dark text-light d-flex align-items-center">{{$product->product_price}} €</span>
+                           <a href="{{route('addtocart2',$product->id)}}">     <button type="button" class="btn btn-sm btn-outline-secondary hover"><img src={{asset("/img/procurement.png")}} width="25px" alt=""></button></a>
                            
                             
                         </div>

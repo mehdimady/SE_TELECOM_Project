@@ -9,6 +9,10 @@ use App\Http\Controllers\MarqueController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrdersController;
+use App\Http\Controllers\Paiement;
+use App\Http\Controllers\PdfController;
+use App\Http\Controllers\ShopController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -22,30 +26,18 @@ use App\Http\Controllers\OrdersController;
 
 
 
+Route::get('/cart', [App\Http\Controllers\CartController::class, 'index'])->name('cart');
 Auth::routes(['verify'=>true]);
 
-Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-
-
-Route::get('/cart', [App\Http\Controllers\CartController::class, 'index'])->name('cart')->middleware('verified','auth');
-
-Route::get('/shop', [App\Http\Controllers\ShopController::class, 'index'])->name('shop');
-
-Route::get('/contact-us',[ContactController::class, 'contact'])->name('contact-us');
-Route::post('/send-message',[ContactController::class,'sendEmail'])->name('contact.send');
-
-
-Route::get('/admin',[AdminController::class, 'dashboard'])->name('admin');
-
-
+Route::middleware('auth','IsAdmin')->prefix('admin')->group(function () {
+    Route::get('/',[AdminController::class, 'dashboard'])->name('admin');
+    
 Route::get('/addcategory',[CategoryController::class, 'addcategory'])->name('addcategory');
 Route::get('/categories',[CategoryController::class,'categories'])->name('categories');
 Route::post('/savecategory',[CategoryController::class,'savecategory'])->name('savecategory');
 Route::get('/edit_category/{id}',[CategoryController::class,'edit_category'])->name('edit_category');
 Route::post('/updatecategory',[CategoryController::class,'updatecategory'])->name('updatecategory');
 Route::get('/delete_category/{id}',[CategoryController::class,'delete_category'])->name('delete_category');
-
-
 Route::get('/addmarque',[MarqueController::class, 'addmarque'])->name('addmarque');
 Route::get('/marque',[MarqueController::class,'marques'])->name('marque');
 Route::post('/savemarque',[MarqueController::class,'savemarque'])->name('savemarque');
@@ -65,9 +57,49 @@ Route::post('/upadateproduct',[ProductController::class, 'upadateproduct'])->nam
 Route::get('/delete_product/{id}',[ProductController::class, 'delete_product'])->name('delete_product');
 Route::get('/activer_product/{id}',[ProductController::class, 'activer_product'])->name('activer_product');
 Route::get('/desactiver_product/{id}',[ProductController::class, 'desactiver_product'])->name('desactiver_product');
+
+
+
+
+});
+
 Route::get('/select_par_cat/{category_name}', [ProductController::class, 'select_par_cat'])->name('select_par_cat');
 Route::get('/select_par_marque/{marque_name}', [ProductController::class, 'select_par_marque'])->name('select_par_marque');
+Route::post('/select_par_prix', [ProductController::class, 'select_par_prix'])->name('select_par_prix');
+
+
+Route::get('/', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+
+Route::get('/shop', [App\Http\Controllers\ShopController::class, 'index'])->name('shop');
+Route::get('/addtocart/{id}',[App\Http\Controllers\ShopController::class, 'addtocart'])->name('addtocart');
+Route::get('/add/{id}',[App\Http\Controllers\ShopController::class, 'shop'])->name('addtocart2');
+Route::get('/removeItem/{id}',[App\Http\Controllers\ShopController::class, 'removeItem'])->name('removeItem');
+
+
+Route::post('modify_quantity/{id}',[App\Http\Controllers\ShopController::class, 'modify_quantity'])->name('modify_quantity');
+Route::get('/paiement',[ShopController::class,'paiement'])->name('paiement')->middleware('verified','auth');
+
+
+Route::get('/contact-us',[ContactController::class, 'contact'])->name('contact-us');
+Route::post('/send-message',[ContactController::class,'sendEmail'])->name('contact.send');
+
+
+
+
+
+
 
 Route::get('/article/{product_name}', [App\Http\Controllers\ArticleController::class, 'article'])->name('article');
 
+
+Route::get('/cordonees',[OrdersController::class, 'cordonees'])->name('cordonees')->middleware('verified','auth');
+Route::post('/livraison',[OrdersController::class, 'livraison'])->name('livraison');
+
+
+
+Route::middleware('auth','IsAdmin')->group(function () {
 Route::get('/orders',[OrdersController::class, 'orders'])->name('orders');
+Route::get('/voircommandepdf/{id}',[PdfController::class, 'voir_pdf'])->name('voircommandepdf');
+
+});

@@ -11,7 +11,7 @@
 
 @section('content')
  <!-- Content Wrapper. Contains page content -->
- <div class="content-wrapper">
+ <div class="content-wrapper w-auto">
     <!-- Content Header (Page header) -->
     <section class="content-header">
       <div class="container-fluid">
@@ -44,33 +44,73 @@
                   <thead>
                   <tr>
                     <th>Date</th>
-                    <th>Nom du Client</th>
+                    <th>Nom</th>
+                    <th>Prenom</th>
+                    <th>Email</th>
+                    <th>Téléphone</th>
+                    <th>Adresse</th>
+                    <th>Complément d'adresse</th>
+                    <th>Code Postal</th>
+                    <th>Ville</th>
+                    <th>Pays</th>
+                   
                     <th>Commandes</th>
                     <th>Actions</th>
                   </tr>
                   </thead>
                   <tbody>
-                  <tr>
-                    <td>2021</td>
-                    <td>Zahir</td>
-                    <td> 4</td>
-                    <td>
-                      <a href="#" class="btn btn-primary"><i class="nav-icon fas fa-eye"></i></a>
-                    </td>
-                  </tr>
-                  <tr>
-                    <td>2021</td>
-                    <td>Hamid</td>
-                    <td>5</td>
-                    <td>
-                      <a href="#" class="btn btn-primary"><i class="nav-icon fas fa-eye"></i></a>
-                    </td>
-                  </tr>
+                    @foreach ($orders as $order)
+                    <tr>
+                      <td>{{$order->created_at}}</td>
+                      <td>{{$order->nom}}</td>
+                      <td> {{$order->prenom}}</td>
+                      <td> {{$order->email}}</td>
+                      <td>{{$order->telephone}}</td>
+                      <td> {{$order->adresse}}</td>
+                      <td> {{$order->complement}}</td>
+                      <td> {{$order->zipcode}}</td>
+                      <td>{{$order->ville}}</td>
+                      <td> {{$order->pays}}</td>
+                      @if (is_array($order->panier->items)||is_object($order->panier->items))
+                     
+                      <td>
+                        @foreach ($order->panier->items as $item)
+                        <span>{{$item['product_name'] . ' ,'}}</span> 
+                        
+                          @endforeach</td>
+                        
+                           
+                         
+                    
+                          
+                      @else
+                          <td>...</td>
+                      
+                      @endif
+                   
+                     
+                     
+                      <td>
+                        {{-- {{dd($order->id)}} --}}
+                        <a href="{{route('voircommandepdf',$order->id)}}" class="btn btn-primary"><i class="nav-icon fas fa-eye"></i></a>
+                      </td>
+                    </tr>
+                    @endforeach
+              
                   </tbody>
                   <tfoot>
                   <tr>
                     <th>Date</th>
-                    <th>Nom du Client</th>
+                    <th>Nom</th>
+                    <th>Prenom</th>
+                    <th>Email</th>
+                    <th>Téléphone</th>
+                    <th>Adresse</th>
+                    <th>Complément d'adresse</th>
+                    <th>Code Postal</th>
+                    <th>Ville</th>
+                    <th>Pays</th>
+                   
                     <th>Commandes</th>
                     <th>Actions</th>
                   </tr>

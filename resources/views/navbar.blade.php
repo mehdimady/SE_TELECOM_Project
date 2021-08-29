@@ -25,7 +25,7 @@
                        
                         
                         <li class=" liStyle nav-item">
-                            <a class="nav-link white mr-md-3 d-flex justify-content-center" href="{{route('cart')}}">Panier</a>
+                            <a class="nav-link white mr-md-3 d-flex justify-content-center" href="{{route('cart')}}">Panier <span class="ml-1 spancolor" >[{{session()->has('cart') ? session()->get('cart')->totalQty :0}}]</span></a>
                         </li>
                     
                        

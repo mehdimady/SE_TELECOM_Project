@@ -1,6 +1,6 @@
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="{{url('/admin')}}" class="brand-link">
+    <a href="{{route('admin')}}" class="brand-link">
       <img src="{{asset('backend/dist/img/IMG-20200910-WA0002.png')}}" alt="Setelcom Logo" class="brand-image  elevation-3" style="opacity:1">
       <span class="brand-text font-weight-light"> SE TELECOM</span>
     </a>
@@ -13,7 +13,7 @@
           <img src="{{asset('backend/dist/img/profil.png')}}" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="{{url('/admin')}}" class="d-block">OUKIDJA Yacine</a>
+          <a href="{{route('admin')}}" class="d-block">OUKIDJA Yacine</a>
         </div>
       </div>
 
@@ -32,7 +32,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('/admin')}}" class="nav-link {{request()->is('admin') ? 'active' : ''}}">
+                <a href="{{route('admin')}}" class="nav-link {{request()->is('admin') ? 'active' : ''}}">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Tableau de bord 1</p>
                 </a>
@@ -52,7 +52,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('/addcategory')}}" class="nav-link {{request()->is('addcategory') ? 'active' : ''}} ">
+                <a href="{{route('addcategory')}}" class="nav-link {{request()->is('addcategory') ? 'active' : ''}} ">
                   <i class="far fa-file nav-icon"></i>
                   <p>Ajouter une catégories</p>
                 </a>
@@ -60,7 +60,7 @@
             </ul>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('/categories')}}" class="nav-link {{request()->is('categories') ? 'active' : ''}} ">
+                <a href="{{route('categories')}}" class="nav-link {{request()->is('categories') ? 'active' : ''}} ">
                   <i class="far fa-file nav-icon"></i>
                   <p>Toutes les Categories</p>
                 </a>
@@ -80,7 +80,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('/addmarque')}}" class="nav-link {{request()->is('addcategory') ? 'active' : ''}} ">
+                <a href="{{route('addmarque')}}" class="nav-link {{request()->is('addcategory') ? 'active' : ''}} ">
                   <i class="far fa-file nav-icon"></i>
                   <p>Ajouter une marque</p>
                 </a>
@@ -88,7 +88,7 @@
             </ul>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('/marque')}}" class="nav-link {{request()->is('categories') ? 'active' : ''}} ">
+                <a href="{{route('marque')}}" class="nav-link {{request()->is('categories') ? 'active' : ''}} ">
                   <i class="far fa-file nav-icon"></i>
                   <p>Toutes les marques</p>
                 </a>
@@ -108,7 +108,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('/addslider')}}" class="nav-link {{request()->is('addslider') ? 'active' : ''}} ">
+                <a href="{{route('addslider')}}" class="nav-link {{request()->is('addslider') ? 'active' : ''}} ">
                   <i class="far fa-file nav-icon"></i>
                   <p>Ajouter un slider</p>
                 </a>
@@ -116,7 +116,7 @@
             </ul>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('/sliders')}}" class="nav-link {{request()->is('sliders') ? 'active' : ''}}">
+                <a href="{{route('sliders')}}" class="nav-link {{request()->is('sliders') ? 'active' : ''}}">
                   <i class="far fa-file nav-icon"></i>
                   <p>Tout les sliders</p>
                 </a>
@@ -136,7 +136,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('/addproduct')}}" class="nav-link {{request()->is('addproduct') ? 'active' : ''}} ">
+                <a href="{{route('addproduct')}}" class="nav-link {{request()->is('addproduct') ? 'active' : ''}} ">
                   <i class="far fa-file nav-icon"></i>
                   <p>Ajouter les produits</p>
                 </a>
@@ -144,7 +144,7 @@
             </ul>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('/products')}}" class="nav-link {{request()->is('products') ? 'active' : ''}} ">
+                <a href="{{route('products')}}" class="nav-link {{request()->is('products') ? 'active' : ''}} ">
                   <i class="far fa-file nav-icon"></i>
                   <p>Tout les produits</p>
                 </a>
@@ -162,7 +162,7 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="{{url('/orders')}}" class="nav-link {{request()->is('orders') ? 'active' : ''}}">
+                <a href="{{route('orders')}}" class="nav-link {{request()->is('orders') ? 'active' : ''}}">
                   <i class="far fa-file nav-icon"></i>
                   <p>Toutes les commandes</p>
                 </a>

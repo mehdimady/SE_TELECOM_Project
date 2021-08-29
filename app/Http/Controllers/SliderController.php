@@ -7,11 +7,14 @@ use Illuminate\Http\Request;
 class SliderController extends Controller
 {
     //
-    public function addslider(){
+    public function addslider()
+    {
         return view('admin.addslider');
     }
-    public function sliders(){
+
+    
+    public function sliders()
+    {
         return view('admin.sliders');
     }
-
 }

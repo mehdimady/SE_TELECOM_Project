@@ -62,8 +62,8 @@
                 <td>{{$marque->marque_name}}
                 </td>
                 <td>
-                  <a href="{{url('/edit_marque/'.$marque->id)}}" class="btn btn-primary"><i class="nav-icon fas fa-edit"></i></a>
-                  <a href="{{url('/delete_marque/'.$marque->id)}}" id="delete" class="btn btn-danger" ><i class="nav-icon fas fa-trash"></i></a>
+                  <a href="{{route('edit_marque',$marque->id)}}" class="btn btn-primary"><i class="nav-icon fas fa-edit"></i></a>
+                  <a href="{{route('delete_marque',$marque->id)}}"  class="btn btn-danger" ><i class="nav-icon fas fa-trash"></i></a>
                 </td>
               </tr>
                  {{Form::hidden('',$increment =$increment + 1)}}

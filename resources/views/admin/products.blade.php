@@ -66,7 +66,7 @@
                         <tr>
                             <td> {{ $increment }} </td>
                             <td>
-                                <img src="./storage/product_images/{{$product->product_image}}/" style="height : 50px; width : 50px" class="img-circle elevation-2" alt="User Image">
+                                <img src="../storage/product_images/{{$product->product_image}}/" style="height : 50px; width : 50px" class="img-circle elevation-2" alt="User Image">
                             </td>
                             <td>{{$product->product_name}}</td>
                             <td>{{$product->product_description}}</td>
@@ -75,12 +75,12 @@
                             <td>{{$product->product_price . ' Eu'}}</td>
                             <td>
                             @if ($product->status != 0)
-                            <a href="{{url('/desactiver_product/' .$product->id)}}"" class="btn btn-success">Désactiver</a>  
+                            <a href="{{route('desactiver_product' ,$product->id)}}" class="btn btn-success">Désactiver</a>  
                             @else
-                            <a href="{{url('/activer_product/' .$product->id)}}"" class="btn btn-warning">Activer</a>
+                            <a href="{{route('activer_product' ,$product->id)}}" class="btn btn-warning">Activer</a>
                             @endif
-                            <a href="{{url('/edit_product/' .$product->id)}}" class="btn btn-primary"><i class="nav-icon fas fa-edit"></i></a>
-                            <a href="{{url('/delete_product/' .$product->id)}}" id="delete" class="btn btn-danger" ><i class="nav-icon fas fa-trash"></i></a>
+                            <a href="{{route('edit_product' ,$product->id)}}" class="btn btn-primary"><i class="nav-icon fas fa-edit"></i></a>
+                            <a href="{{route('delete_product' ,$product->id)}}"  class="btn btn-danger" ><i class="nav-icon fas fa-trash"></i></a>
                             </td>
                         </tr>
                         {{Form::hidden('', $increment= $increment +1 )}}

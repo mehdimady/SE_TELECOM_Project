@@ -41,17 +41,15 @@
 
                 <p>{{$product->product_description}}</p>
 
-                <form class="">
-                    <!-- Default input -->
-                    <div class="d-flex justify-content-between align-items-center"> <label for="number">Quantité</label>
-                        <input type="number" value="1" aria-label="Search" class="form-control " style="width: 100px"></div>
-                   
-                        <div class="d-flex justify-content-end pt-3">  <button class="btn btn-primary btn-md my-0 text-center  p waves-effect waves-light" type="submit">Add to cart
+                        <div class=" pr-0 col-12 col-md-6 mt-3 d-flex justify-content-center"> <button onclick="location.href='{{ route('addtocart',$product->id) }}'"  type="button"class="btn btn-primary btn-md my-0  p waves-effect waves-light " type="submit" >Add to cart
                             <i class="fas fa-shopping-cart ml-1"></i>
-                        </button></div>
+                        </button>
+                           
+                    </div>
+                    </div>  
+                
                   
 
-                </form>
 
             </div>
             <!--Content-->
@@ -62,4 +60,24 @@
     </div>
 </div>
 
+<script>
+    $(document).ready(function(){
+        var quantity = 1;
+
+        $('.quantity-right-plus').click(function(e){
+            e.preventDefault();
+            var quantity = parseInt($('#quantity').val());
+            $('#quantity').val(quantity + 1);
+        });
+
+        $('.quantity-left-minus').click(function(e){
+            e.preventDefault();
+            var quantity = parseInt($('#quantity').val());
+            if(quantity > 1){
+                $('#quantity').val(quantity - 1);
+            }
+        });
+
+    });
+</script>
 @endsection
