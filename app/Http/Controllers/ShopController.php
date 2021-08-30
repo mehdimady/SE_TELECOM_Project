@@ -74,8 +74,5 @@ class ShopController extends Controller
     }
 
     
-    public function paiement()
-    {
-        return view('paiement');
-    }
+
 }

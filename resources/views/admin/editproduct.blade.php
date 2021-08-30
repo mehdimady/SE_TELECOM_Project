@@ -86,6 +86,16 @@
                    {{Form::label('','Catégorie du Produit')}}
 {{Form::select('product_category', $categories , $product->product_category, [ 'class' => 'form-control select 2'])}}             
                   </div>
+                  <div class="form-group">
+                    {{-- <label>Catégorie du Produit</label>
+                    <select class="form-control select2" style="width: 100%;">
+                      <option selected="selected">Equipement</option>
+                      <option>Consommable</option>
+                      <option>Soudeuses</option>
+                    </select> --}}
+                   {{Form::label('','Marque du Produit')}}
+{{Form::select('product_marque', $marques , $product->product_marque, [ 'class' => 'form-control select 2'])}}             
+                  </div>
                   <label for="exampleInputFile">Image du Produit</label>
                   <div class="input-group">
                     <div class="custom-file">

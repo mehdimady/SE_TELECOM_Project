@@ -9,7 +9,7 @@ use App\Http\Controllers\MarqueController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\ProductController;
 use App\Http\Controllers\OrdersController;
-use App\Http\Controllers\Paiement;
+;
 use App\Http\Controllers\PdfController;
 use App\Http\Controllers\ShopController;
 
@@ -78,7 +78,7 @@ Route::get('/removeItem/{id}',[App\Http\Controllers\ShopController::class, 'remo
 
 
 Route::post('modify_quantity/{id}',[App\Http\Controllers\ShopController::class, 'modify_quantity'])->name('modify_quantity');
-Route::get('/paiement',[ShopController::class,'paiement'])->name('paiement')->middleware('verified','auth');
+Route::get('/paiement',[OrdersController::class,'paiement'])->name('paiement')->middleware('verified','auth');
 
 
 Route::get('/contact-us',[ContactController::class, 'contact'])->name('contact-us');
@@ -95,7 +95,7 @@ Route::get('/article/{product_name}', [App\Http\Controllers\ArticleController::c
 
 Route::get('/cordonees',[OrdersController::class, 'cordonees'])->name('cordonees')->middleware('verified','auth');
 Route::post('/livraison',[OrdersController::class, 'livraison'])->name('livraison');
-
+// Route::get('paiement-success',[OrdersController::class, 'livraison'])->name('livraison');
 
 
 Route::middleware('auth','IsAdmin')->group(function () {
@@ -103,3 +103,4 @@ Route::get('/orders',[OrdersController::class, 'orders'])->name('orders');
 Route::get('/voircommandepdf/{id}',[PdfController::class, 'voir_pdf'])->name('voircommandepdf');
 
 });
+

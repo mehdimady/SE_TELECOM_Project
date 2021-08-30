@@ -106,12 +106,14 @@
         <table cellpadding="0" cellspacing="0">
             <tr class="top">
                 <td colspan="2">
+                    <tr>
+                        <td class="title">
+                            <h2>SE TELECOM SHOP</h2>
+                        </td>
+                    </tr>
                     @foreach ($orders as $order)
                     <table>
                         <tr>
-                            <td class="title">
-                                <h2>SE TELECOM SHOP</h2>
-                            </td>
                             
                             <td>
                                 Invoice #: {{$order->livraison_id}}<br>
