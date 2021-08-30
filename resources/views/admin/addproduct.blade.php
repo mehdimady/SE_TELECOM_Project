@@ -43,9 +43,9 @@
                   </ul>
               </div>
           @endif
-          @if (Session::has('status'))
+          @if (session()->has('status'))
           <div class="alert alert-success">
-              {{Session::get('status')}}
+              {{session()->get('status')}}
           </div>
               
           @endif

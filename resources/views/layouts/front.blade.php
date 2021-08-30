@@ -33,6 +33,8 @@
     @yield('content')
     @include('footer')
     <script type="text/javascript" src="{{asset('js\vanilla-tilt.js')}}"></script>
+    <script src="https://js.stripe.com/v2/"></script>
+    <script src={{asset('js\checkout.js')}}></script>
     <script>VanillaTilt.init(document.querySelectorAll(".cardStyle"), {max: 25,speed: 400});</script>
     <script>const toTop = document.querySelector(".to-top");
 

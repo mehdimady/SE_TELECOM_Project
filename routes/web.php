@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AdminController;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\MarqueController;
 use App\Http\Controllers\SliderController;
 use App\Http\Controllers\ProductController;
@@ -101,6 +102,8 @@ Route::post('/livraison',[OrdersController::class, 'livraison'])->name('livraiso
 Route::middleware('auth','IsAdmin')->group(function () {
 Route::get('/orders',[OrdersController::class, 'orders'])->name('orders');
 Route::get('/voircommandepdf/{id}',[PdfController::class, 'voir_pdf'])->name('voircommandepdf');
+
+Route::get('/success',[HomeController::class, 'success'])->name('success');
 
 });
 

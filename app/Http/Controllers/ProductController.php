@@ -44,7 +44,7 @@ class ProductController extends Controller
         ]);
 
         if ($request->hasFile('product_image')) {
-            // 1 :get file name with exte
+            // 1 :get file name with extesion
             $fileNameWithExt = $request->file('product_image')->getClientOriginalName();
             //2 :get just file name
             $fileName = pathinfo($fileNameWithExt, PATHINFO_FILENAME);

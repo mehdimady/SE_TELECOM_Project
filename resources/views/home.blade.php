@@ -1,6 +1,7 @@
 @extends('layouts.front')
 
 @section('content')
+
 <div class="row brandAcceuil " >
     <div class="col-12 col-md-4 col-lg-4">
         <SPAN class="d-flex justify-content-center brandTitre font-weight-bolder mt-5 "> SE
